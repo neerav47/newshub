@@ -1,0 +1,66 @@
+﻿@model IEnumerable<News.Models.Articles>
+
+@{
+    ViewBag.Title = "The Guardian";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="media-heading" align="center"><h1>Live Top News Headlines From The Guardian </h1></div>
+
+<div class="row" style="padding-top:20px">
+    <div class="col-md-3" align="center">
+        <nav>
+            <div class="btn-group-vertical" role="group">
+                <ul class="pager">
+                    <li><a href="@Url.Action("Index","Home")">BBC News</a></li>
+
+                    <li><a href="@Url.Action("Getcnbc", "Home")">CNBC</a></li>
+
+                    <li><a href="@Url.Action("espn","Home")">ESPN</a></li>
+
+                    <li><a href="@Url.Action("espncricinfo", "Home")">ESPN Cric Info</a></li>
+
+                    <li><a href="@Url.Action("nyt","Home")">The New York Times</a></li>
+
+                    <li><a href="@Url.Action("wallstreetjournal", "Home")">The Wall Street Journal</a></li>
+
+                    <li><a href="@Url.Action("usatoday", "Home")">USA Today</a></li>
+
+                    <li><a href="@Url.Action("telegraph", "Home")">The Telegraph</a></li>
+
+                    <li><a href="@Url.Action("skynews", "Home")">The SkyNews</a></li>
+                    <li><a href="@Url.Action("skysportsnews", "Home")">The Sky Sports News</a></li>
+                    <li><a href="@Url.Action("nflnews", "Home")">The NFL News</a></li>
+                    <li><a href="@Url.Action("thehindu","Home")">The Hindu</a></li>
+                    <li><a href="@Url.Action("theguardian", "Home")">The Guardian </a></li>
+                    <li><a href="@Url.Action("googlenews", "Home")">Google News</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="col-md-9">
+        @foreach (var item in Model)
+        {
+            <div class="well">
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <h4 align="center">@item.title</h4>
+                        @item.description<br />
+                        <a href="@item.url">More Details</a>
+
+
+                    </div>
+                    <div class="col-md-2">
+                        <div id="divImage">
+                            <img src="@item.urlToImage" @*height="100" width="150"*@ class="img-responsive img-thumbnail" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
